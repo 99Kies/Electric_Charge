@@ -14,7 +14,7 @@
     git pull https://github.com/99Kies/Electric_Charge.git
     pip install -r piplist.txt
     python login.py
-
+<div align=center><img src="https://github.com/99Kies/Electric_Charge/blob/master/ico/run.png?raw=true" width="35%" height="35%" /></div>
 ## 有问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
 
