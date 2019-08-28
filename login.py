@@ -5,7 +5,6 @@ from pyquery import PyQuery as pq
 import re
 import time
 
-MyMoney = ''
 
 def login_post(userid,userpassword,money,area,house):
     try:
@@ -137,6 +136,8 @@ def login_post(userid,userpassword,money,area,house):
         doc = pq(r_post.text)
         value_1 = doc.find('#__VIEWSTATE').attr('value')
         value_2 = doc.find('#__EVENTVALIDATION').attr('value')
+        Electric = doc.find('#lblItem').text()
+        Electric = re.search('缴费项目：常工用电缴费 当前剩余电量：(.*?)度', Electric)[1]
         final_data = {
             '__VIEWSTATE':value_1,
             'txtMon':money,
@@ -153,7 +154,7 @@ def login_post(userid,userpassword,money,area,house):
             yu_e = s.get('http://dcard.zjhu.edu.cn/Zytk32Portal/Cardholder/AccBalance.aspx')
             doc = pq(yu_e.text)
             MyMoney = doc.find('#lblOne0').text()
-            print('成功缴费：%s\t余额：%s' % (money,MyMoney))
+            print('成功缴费：%s\t余额还剩：%s\t还剩%s度电' % (money, MyMoney, Electric))
             time.sleep(5)
         else:
             print('Error')
