@@ -8,10 +8,8 @@
   充充电费，看看余额和还剩多少电，一般恶臭年轻人都是欠费的
 	
 ## 快速运行项目
-{ {{ mkdir electric_charge
-     git pull https://github.com/99Kies/Electric_Charge.git
-    
-}} }
+{ {{ mkdir electric_charge }} }
+{ {{ git pull https://github.com/99Kies/Electric_Charge.git }} }
 
 ## 有问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
