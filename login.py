@@ -46,6 +46,7 @@ def login_post(userid,userpassword,money,area,house):
         doc = pq(yu_e.text)
         MyMoney = doc.find('#lblOne0').text()
         print('当前余额为：%s' % MyMoney)
+        are_you_sure()
         if eval(money) > eval(MyMoney[1:]):
             print('心里还有点数吗,就剩 %s,这么不买个飞机.' % (MyMoney))
             return None
@@ -162,14 +163,18 @@ def login_post(userid,userpassword,money,area,house):
         login_post(userid, userpassword, money, area, house)
 
 
-def are_you_sure(userid,userpassword,money,area,house):
+def are_you_sure():
     yes = ['yes','y']
     no = ['no','n']
     Is = input('are you sure, 你就整这些??? [yes/no]:  ')
     if Is in yes:
-        login_post(userid, userpassword, money, area, house)
+        # login_post(userid, userpassword, money, area, house)
+        # return None
+        pass
     elif Is in no:
         print('好的老弟, 多挣点钱养我')
+        time.sleep(5)
+        return None
 
 if __name__ == '__main__':
 
@@ -178,5 +183,5 @@ if __name__ == '__main__':
     area = input('哪栋:  ')
     house = input('哪间寝室:  ')
     money = input('给你寝室整多少的:  ')
-    are_you_sure(userid,userpassword,money,area,house)
-    # login_post(userid,userpassword,money,area,house)
+    # are_you_sure(userid,userpassword,money,area,house)
+    login_post(userid,userpassword,money,area,house)
