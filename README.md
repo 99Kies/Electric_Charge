@@ -10,8 +10,7 @@
 ## 快速运行项目
     mkdir electric_charge
     cd electric_charge
-    git init
-    git pull https://github.com/99Kies/Electric_Charge.git
+    git clone https://github.com/99Kies/Electric_Charge.git
     pip install -r piplist.txt
     python login.py
 <div align=center><img src="https://github.com/99Kies/Electric_Charge/blob/master/ico/run.png?raw=true" width="35%" height="35%" /></div>
