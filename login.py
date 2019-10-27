@@ -6,8 +6,9 @@ import re
 import time
 
 
-def login_post(userid,userpassword,money,area,house):
+def login_post(userid,userpassword):
     try:
+        AREA = [str(i) for i in range(1,10)]
         headers = {
             'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'
         }
@@ -45,7 +46,14 @@ def login_post(userid,userpassword,money,area,house):
         yu_e = s.get('http://dcard.zjhu.edu.cn/Zytk32Portal/Cardholder/AccBalance.aspx')
         doc = pq(yu_e.text)
         MyMoney = doc.find('#lblOne0').text()
+        if len(MyMoney)==0:
+            a = 1/0
         print('当前余额为：%s' % MyMoney)
+        area = input('哪栋:  ')
+        if area in AREA:
+            area = '0'+ area
+        house = input('哪间寝室:  ')
+        money = input('给你寝室整多少的:  ')
         are_you_sure()
         if eval(money) > eval(MyMoney[1:]):
             print('心里还有点数吗,就剩 %s,这么不买个飞机.' % (MyMoney))
@@ -160,13 +168,15 @@ def login_post(userid,userpassword,money,area,house):
         else:
             print('Error')
     except:
-        login_post(userid, userpassword, money, area, house)
+        print('失败！！！网络问题或者账号密码错误')
+        time.sleep(3)
+        # login_post(userid, userpassword, area, house)
 
 
 def are_you_sure():
     yes = ['yes','y']
     no = ['no','n']
-    Is = input('are you sure, 你就整这些??? [yes/no]:  ')
+    Is = input('are you sure, 你就整这些??? [yes/no]:  ').lower()
     if Is in yes:
         # login_post(userid, userpassword, money, area, house)
         # return None
@@ -177,11 +187,9 @@ def are_you_sure():
         return None
 
 if __name__ == '__main__':
-
+    print("作者: 99Kies")
+    print("99Kies的博客：https://blog.csdn.net/qq_19381989")
+    print("如有需要请在GitHub上star我的项目：https://github.com/99kies/electric_charge\n\n")
     userid = input('学号:  ')
     userpassword = input('密码:  ')
-    area = input('哪栋:  ')
-    house = input('哪间寝室:  ')
-    money = input('给你寝室整多少的:  ')
-    # are_you_sure(userid,userpassword,money,area,house)
-    login_post(userid,userpassword,money,area,house)
+    login_post(userid,userpassword)
