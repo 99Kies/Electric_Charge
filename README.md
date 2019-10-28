@@ -21,7 +21,7 @@
 * 邮件(kiesbayi@gmail.com)
 * QQ: 1290017556
 * WeChat: thf056
-* csdn: [@小汤六六](https://blog.csdn.net/qq_19381989)
+* CSDN: [@99Kies](https://blog.csdn.net/qq_19381989)
 
 ## 捐助开发者
 在兴趣的驱动下,写一个`免费`的东西，有欣喜，也还有汗水，希望你喜欢我的作品，同时也能支持一下。
